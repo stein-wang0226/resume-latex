@@ -1,6 +1,6 @@
 # 王煜祥 · AI4S LaTeX 简历
 
-可直接编辑和编译的本地 LaTeX 项目。已根据你的原始 PDF 整理为两页研究型简历：第一页展示教育、论文和实习，第二页展开三个 AI4S 项目与技术能力。
+可直接编辑和编译的本地 LaTeX 项目。正文已按最新《王煜祥简历（AI4S) (1).pdf》同步为两页研究型简历：第一页展示教育、论文、字节跳动的三条工作链路及阿里巴巴实习概览；第二页展开三个 AI4S 项目、天翼交通科技实习和四类专业技能。
 
 排版采用墨蓝色与深灰色，姓名和论文标题使用衬线字体，正文使用协调的中英无衬线字体。分节有细线与编号，论文标题和状态分行，日期与技能内容对齐。个人照片取自原 PDF，可随时关闭。正文、样式和构建脚本相互独立。
 
@@ -43,7 +43,8 @@ xelatex -interaction=nonstopmode -halt-on-error -output-directory=outputs resume
 | 姓名、电话、邮箱、城市、研究方向 | `content/profile.tex` |
 | 学历、课程、奖项 | `content/education.tex` |
 | 论文标题、作者顺位、录用 / 投稿状态 | `content/publications.tex` |
-| 公司、岗位、实习日期与职责 | `content/experience.tex` |
+| 字节跳动、阿里巴巴实习概览 | `content/experience.tex` |
+| 天翼交通科技实习 | `content/experience-continued.tex` |
 | AutoResearch、Holon、ProtAgent | `content/projects.tex` |
 | 技能 | `content/skills.tex` |
 | 配色、照片开关、是否手动分页 | `config.tex` |

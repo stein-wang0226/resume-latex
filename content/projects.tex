@@ -20,8 +20,7 @@
 \projecttitle{ProtAgent｜蛋白质工具调用与步骤级强化学习}
 {阿里巴巴 · Qwen3-8B ReAct Agent · ARR 在审}
 \begin{itemize}
-  \item \textbf{工具决策：}面向酶功能、结构域、GO/IPR、信号肽与无序区五类注释任务，构建自主选择生信工具、解析证据并生成结论的 Agent。
-  \item \textbf{后训练框架：}设计 Tool-Trajectory SFT + On-Policy RL 两阶段流程；SFT 学习工具接口与任务路由，RL 优化证据获取、停止策略和答案综合。
-  \item \textbf{步骤级归因：}提出 Batched Step-Level REINFORCE，分别建模中间工具动作与最终答案的奖励，将回报归因至对应决策步骤，缓解长轨迹的 Episode-Level 归因噪声。
-  \item \textbf{实验结果：}均衡 OOD-1000 上成功率由 Base \metric{14.1\%}、SFT \metric{40.2\%} 提升至 \metric{61.0\%}，对照 DeepSeek-V3.2-Thinking 671B 的 41.6\% 与 GPT-5.5 的 60.8\%；三随机种子实验中，Step-Level 相较 Episode-Level REINFORCE 由 \metric{42.7\% 提升至 61.4\%}。
+  \item \textbf{后训练流程：}基于 Qwen3-8B 构建面向五类蛋白质注释任务的 ReAct Agent，设计 Tool-Trajectory SFT + On-Policy RL 两阶段流程；SFT 学习工具选择、调用格式与答案生成，RL 通过真实工具交互优化模型的工具调用与回答行为。
+  \item \textbf{Step-Level Credit Assignment：}设计 Batched Step-Level REINFORCE，分别为中间工具调用（重复调用惩罚、工具执行校验等）与最终答案设置 reward，按交互步骤计算 reward-to-go，并用于对应响应 token 的策略梯度更新，改善多步工具调用中的信用分配。
+  \item \textbf{实验结果：}在五类任务均衡的 OOD-1000 上，成功率由 Base \metric{14.1\%}、SFT \metric{40.2\%} 提升至 \metric{61.0\%}，超过 DeepSeek-V3.2-Thinking 671B 的 41.6\%，与 GPT-5.5 的 60.8\% 相当。
 \end{itemize}
