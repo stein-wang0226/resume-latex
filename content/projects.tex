@@ -1,0 +1,27 @@
+\cvsection{科研与项目经历}{RESEARCH \& PROJECTS}
+\projecttitle{AutoResearch｜科学任务合成与后训练数据闭环}
+{阿里巴巴 · 面向 Qwen 后训练的 TB-sci / Harbor 任务生产}
+\begin{itemize}
+  \item \textbf{闭环设计：}将专家 Skill / Protocol 转化为任务生成与评测规则，构建数据审计、任务生成、Calibration、Rollout 和 Evaluation 流水线，贯通合成、修订、SFT 与评测。
+  \item \textbf{难度与质量：}设计递归任务修订流程，结合 Rollout 与 Rubric Judge 反馈调节难度；采用 Solver / Verifier 隔离、多路径校准与跨模型评分，识别评测缺陷、推理错误和 Reward Hacking。
+  \item \textbf{规模化生产：}搭建支持并发调度、断点恢复与版本追踪的 Multi-Agent 批量生产系统，累计交付 \metric{2,000+ 个 Harbor v2 任务包}。
+  \item \textbf{训练验证：}合成数据经 Qwen3.8-27B SFT 验证后交付 Qwen 后训练团队，推动 Terminal-Bench 等指标提升；相关任务提交至 Terminal-Bench Sci 并通过一轮 review。
+\end{itemize}
+\projectspace
+\projecttitle{Holon｜Protein–Text 多模态统一大模型}
+{阿里巴巴 · Qwen3 / Mixture-of-Tracks · 蛋白质理解与生成}
+\begin{itemize}
+  \item \textbf{多阶段训练：}参与蛋白预训练、多模态 CPT 与科学 SFT，支持 Protein $\leftrightarrow$ Text 双向建模、T2P / P2T 生成及序列–结构联合学习，开展模型规模、预算和数据配比实验。
+  \item \textbf{数据与优化：}构建 UniRef 序列与文本–蛋白配对数据的混合方案，开展 Token 配比、Muon 优化器及 Scaling Law 实验，完成 \metric{0.6B 至 8B} 的规模扩展；通过 Fitness 与配对数据对照分析蛋白能力保持及条件建模收益。
+  \item \textbf{指令微调：}参与 0.6B 模型六组 SFT 对照实验，P3 描述排名准确率由 \metric{15.3\% 提升至 21.2\%（+5.9 pp）}；通用与专业混合数据使 IFEval 较纯专业数据训练提升 \metric{29.02 个百分点}。
+  \item \textbf{统一评测：}建设 ProtText-Eval，覆盖文本引导的蛋白生成、编辑和理解，从指令对齐、序列 / 结构质量及下游效果评估模型，集成多类 Baseline，形成团队评测基线。
+\end{itemize}
+\projectspace
+\projecttitle{ProtAgent｜蛋白质工具调用与步骤级强化学习}
+{阿里巴巴 · Qwen3-8B ReAct Agent · ARR 在审}
+\begin{itemize}
+  \item \textbf{工具决策：}面向酶功能、结构域、GO/IPR、信号肽与无序区五类注释任务，构建自主选择生信工具、解析证据并生成结论的 Agent。
+  \item \textbf{后训练框架：}设计 Tool-Trajectory SFT + On-Policy RL 两阶段流程；SFT 学习工具接口与任务路由，RL 优化证据获取、停止策略和答案综合。
+  \item \textbf{步骤级归因：}提出 Batched Step-Level REINFORCE，分别建模中间工具动作与最终答案的奖励，将回报归因至对应决策步骤，缓解长轨迹的 Episode-Level 归因噪声。
+  \item \textbf{实验结果：}均衡 OOD-1000 上成功率由 Base \metric{14.1\%}、SFT \metric{40.2\%} 提升至 \metric{61.0\%}，对照 DeepSeek-V3.2-Thinking 671B 的 41.6\% 与 GPT-5.5 的 60.8\%；三随机种子实验中，Step-Level 相较 Episode-Level REINFORCE 由 \metric{42.7\% 提升至 61.4\%}。
+\end{itemize}

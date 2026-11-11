@@ -1,0 +1,21 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "tectonic",
+      "command": "tectonic",
+      "args": ["--synctex", "--keep-logs", "--outdir", "%OUTDIR%", "%DOC%"]
+    },
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-halt-on-error", "-output-directory=%OUTDIR%", "%DOC%"]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {"name": "Tectonic", "tools": ["tectonic"]},
+    {"name": "XeLaTeX × 2", "tools": ["xelatex", "xelatex"]}
+  ],
+  "latex-workshop.latex.outDir": "%DIR%/outputs",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab"
+}

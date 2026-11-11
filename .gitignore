@@ -1,0 +1,16 @@
+# 内容和样式是版本管理对象；生成文件可按需另行保存。
+outputs/*
+!outputs/.gitkeep
+!outputs/resume.pdf
+!outputs/template.pdf
+!outputs/resume-preview.png
+!outputs/resume-page-1.png
+!outputs/resume-page-2.png
+!outputs/template-preview.png
+!outputs/upstream-comparison.png
+*.aux
+*.log
+*.out
+*.xdv
+*.synctex.gz
+.DS_Store
