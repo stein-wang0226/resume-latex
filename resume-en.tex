@@ -1,0 +1,22 @@
+% English entry point. Build with XeLaTeX / Tectonic.
+\documentclass{ai4s-resume}
+\input{config}
+\geometry{left=16.5mm,right=16.5mm,top=14.5mm,bottom=16.5mm,footskip=7.5mm}
+\renewcommand{\ResumeBodySize}{9.65}
+\renewcommand{\ResumeLeading}{13.7}
+\renewcommand{\ResumeSectionGap}{10pt}
+\renewcommand{\ResumeEntryGap}{5.5pt}
+\renewcommand{\ResumeProjectGap}{9pt}
+\setlist[itemize]{topsep=2.5pt,itemsep=2pt,parsep=0pt,partopsep=0pt}
+\ResumeManualBreakfalse
+\input{content-en/profile}
+\begin{document}
+\makeheader
+\input{content-en/education}
+\input{content-en/publications}
+\input{content-en/experience}
+\resumepagebreak
+\input{content-en/projects}
+\input{content-en/experience-continued}
+\input{content-en/skills}
+\end{document}

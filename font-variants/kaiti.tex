@@ -1,0 +1,10 @@
+% 楷体对照版：使用开放授权的霞鹜文楷，不依赖系统商业字体。
+\setCJKmainfont{LXGWWenKai-Regular.ttf}[
+  Path=assets/fonts/,
+  BoldFont=LXGWWenKai-Medium.ttf]
+\newCJKfontfamily\variantNameCJKfont{LXGWWenKai-Medium.ttf}[
+  Path=assets/fonts/,LetterSpace=8]
+\newCJKfontfamily\variantSectionCJKfont{LXGWWenKai-Medium.ttf}[
+  Path=assets/fonts/,LetterSpace=2]
+\renewcommand{\namefont}{\paperfont\variantNameCJKfont}
+\renewcommand{\sectionfont}{\headingfont\variantSectionCJKfont}

@@ -1,0 +1,10 @@
+% 宋体对照版：只切换中文字体，英文、内容、字号和配色沿用共享样式。
+\setCJKmainfont{NotoSerifSC-Regular.otf}[
+  Path=assets/fonts/,
+  BoldFont=NotoSerifSC-Medium.otf]
+\newCJKfontfamily\variantNameCJKfont{NotoSerifSC-Medium.otf}[
+  Path=assets/fonts/,LetterSpace=8]
+\newCJKfontfamily\variantSectionCJKfont{NotoSerifSC-Medium.otf}[
+  Path=assets/fonts/,LetterSpace=2]
+\renewcommand{\namefont}{\paperfont\variantNameCJKfont}
+\renewcommand{\sectionfont}{\headingfont\variantSectionCJKfont}

@@ -1,0 +1,26 @@
+\cvsection{Research \& Projects}{RESEARCH \& PROJECTS}
+\projecttitle{AutoResearch | Scientific Harbor Task Synthesis and Post-Training Data Loop}
+{Alibaba · Harbor task production for Qwen post-training}
+\begin{itemize}
+  \item \textbf{Closed loop:} converted expert skills/protocols into task-generation and evaluation rules; built data-audit, task-generation, calibration, rollout and evaluation pipelines linking synthesis, revision, SFT and benchmarking.
+  \item \textbf{Quality control:} designed recursive task revision with rollout and Rubric Judge feedback; used solver/verifier separation, multi-path calibration and cross-model scoring to detect benchmark defects, reasoning errors and reward hacking.
+  \item \textbf{Scaled production:} built a concurrent multi-agent batch system with checkpoint recovery and version tracking, delivering \metric{2,000+ Harbor task packages}.
+  \item \textbf{Training validation:} validated synthesized data through Qwen3.8-27B SFT before handoff to the Qwen post-training team, contributing to downstream metric improvements; related tasks were submitted to Terminal-Bench Sci and passed one review round.
+\end{itemize}
+\projectspace
+\projecttitle{Holon | Unified Protein--Text Multimodal Foundation Model}
+{Alibaba · Qwen3 / Mixture-of-Tracks · Protein understanding and generation}
+\begin{itemize}
+  \item \textbf{Multi-stage training:} contributed to protein pretraining, multimodal CPT and scientific SFT for bidirectional Protein $\leftrightarrow$ Text modeling, T2P/P2T generation and joint sequence--structure learning; ran scale, budget and data-mixture experiments.
+  \item \textbf{Data and optimization:} mixed UniRef sequences with text--protein pairs; studied token ratios, the Muon optimizer and scaling laws, scaling models from \metric{0.6B to 8B} and analyzing protein-capability retention under fitness/paired-data settings.
+  \item \textbf{Instruction tuning:} ran six 0.6B SFT ablations, improving P3 description-ranking accuracy from \metric{15.3\% to 21.2\% (+5.9 pp)}; mixed general/domain data improved IFEval by \metric{29.02 percentage points}.
+  \item \textbf{Unified evaluation:} built ProtText-Eval for text-guided protein generation, editing and understanding, covering instruction alignment, sequence/structure quality and downstream effects; integrated multiple baselines and established the team evaluation baseline.
+\end{itemize}
+\projectspace
+\projecttitle{ProtAgent | Protein Tool Use and Step-Level Reinforcement Learning}
+{Alibaba · Qwen3-8B ReAct Agent · ARR under review}
+\begin{itemize}
+  \item \textbf{Post-training workflow:} built a Qwen3-8B ReAct agent for five protein annotation task families with Tool-Trajectory SFT + On-Policy RL; SFT learns tool selection, calling format and answer generation, while RL optimizes tool-use behavior through real interactions.
+  \item \textbf{Step-level credit assignment:} designed Batched Step-Level REINFORCE with separate rewards for intermediate tool calls, including repeated-call penalties and tool-execution validation, and for final answers; computed reward-to-go by interaction step and updated corresponding response tokens.
+  \item \textbf{Results:} on OOD-1000 balanced across five task families, success rate improved from Base \metric{14.1\%} and SFT \metric{40.2\%} to \metric{61.0\%}, surpassing DeepSeek-V3.2-Thinking 671B at 41.6\% and matching GPT-5.5 at 60.8\%.
+\end{itemize}

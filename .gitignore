@@ -8,6 +8,13 @@ outputs/*
 !outputs/resume-page-2.png
 !outputs/template-preview.png
 !outputs/upstream-comparison.png
+!outputs/typography-comparison.png
+!outputs/resume-songti.pdf
+!outputs/resume-kaiti.pdf
+!outputs/songti-kaiti-comparison.png
+!outputs/layout-simplification-comparison.png
+!outputs/resume-en.pdf
+!outputs/resume-en-preview.png
 *.aux
 *.log
 *.out

@@ -1,13 +1,17 @@
 # 王煜祥 · AI4S LaTeX 简历
 
-可直接编辑和编译的本地 LaTeX 项目。正文已按最新《王煜祥简历（AI4S) (1).pdf》同步为两页研究型简历：第一页展示教育、论文、字节跳动的三条工作链路及阿里巴巴实习概览；第二页展开三个 AI4S 项目、天翼交通科技实习和四类专业技能。
+可直接编辑和编译的本地 LaTeX 项目。正文已按最新《王煜祥简历.pdf》与上一份原稿的差异同步为两页研究型简历：第一页展示教育、论文、字节跳动的三条工作链路及阿里巴巴实习概览；第二页展开三个 AI4S 项目、天翼交通科技实习和四类专业技能。
 
-排版采用墨蓝色与深灰色，姓名和论文标题使用衬线字体，正文使用协调的中英无衬线字体。分节有细线与编号，论文标题和状态分行，日期与技能内容对齐。个人照片取自原 PDF，可随时关闭。正文、样式和构建脚本相互独立。
+排版采用墨蓝色与深灰色，姓名、分节标题和论文标题使用衬线字体，正文使用协调的中英无衬线字体。中英文重点统一采用 Medium 字重，首页左上角显示复旦校徽，分节保留中文标题与编号，移除重复分节横线，论文标题和状态分行，日期与技能内容对齐。页脚只显示页码且不再加横线，续页页眉只显示姓名。个人照片取自原 PDF，可随时关闭。正文、样式和构建脚本相互独立。
 
 - 成品：[我的简历 PDF](outputs/resume.pdf)
+- 英文版：[English resume PDF](outputs/resume-en.pdf) / [English preview](outputs/resume-en-preview.png)
 - 通用起点：[空白模板 PDF](outputs/template.pdf) / [空白模板源码](template.tex)
 - [下载完整项目 ZIP（源码、字体、PDF）](https://github.com/stein-wang0226/resume-latex/archive/refs/heads/main.zip)
 - [两页成品预览](outputs/resume-preview.png) / [两个原模板视觉对照](outputs/upstream-comparison.png)
+- [本轮字体与排版优化前后对照](outputs/typography-comparison.png)
+- [宋体版 PDF](outputs/resume-songti.pdf) / [楷体版 PDF](outputs/resume-kaiti.pdf) / [宋体与楷体并排对照](outputs/songti-kaiti-comparison.png)
+- [页脚与分节标签简化前后对照](outputs/layout-simplification-comparison.png)
 - [模板比较与设计依据](docs/TEMPLATE_COMPARISON.md)
 - [原稿整理与待核对事项](docs/CONTENT_NOTES.md)
 - [来源与授权说明](THIRD_PARTY_NOTICES.md)
@@ -25,7 +29,37 @@
 make all
 ```
 
-输出在 `outputs/`。构建日志和辅助文件保留在系统临时目录，命令末尾会显示其路径。脚本会检查缺字和文字溢出，失败时保留上一次成功的 PDF。`build.py` 只依赖 Python 3 标准库。
+所有 PDF 统一输出在项目根目录的 `outputs/`，本机完整路径为 `/Users/bytedance/Desktop/resume-template/outputs/`。构建日志保留在系统临时目录，命令末尾会显示其路径；SyncTeX 定位文件随 PDF 放在 `outputs/`，不参与 Git 版本管理。脚本会检查缺字和文字溢出，失败时保留上一次成功的 PDF。`build.py` 只依赖 Python 3 标准库。
+
+### 宋体 / 楷体对照版
+
+两版共享 `content/` 的最新中文正文和个人信息。中文姓名、标题与正文整体切换，英文仍使用 IBM Plex；字号、行距、配色、照片与板块顺序一致，均为两页。
+
+| 版本 | 中文字体 | 主文件 | PDF |
+| --- | --- | --- | --- |
+| 默认版 | 宋体姓名与分节标题，黑体正文 | `resume.tex` | `outputs/resume.pdf` |
+| 宋体版 | Noto Serif SC Regular / Medium | `resume-songti.tex` | `outputs/resume-songti.pdf` |
+| 楷体版 | LXGW WenKai Regular / Medium（霞鹜文楷） | `resume-kaiti.tex` | `outputs/resume-kaiti.pdf` |
+| 空白模板 | 默认字体搭配 | `template.tex` | `outputs/template.pdf` |
+
+```bash
+./build.sh resume-songti
+./build.sh resume-kaiti
+# 或一次编译两个字体版本
+make fonts
+```
+
+对照版均使用真实 Regular（400）与 Medium（500）字重，没有人工加粗。字体文件和开放许可证随项目携带。字体设置分别位于 `font-variants/songti.tex` 与 `font-variants/kaiti.tex`。
+
+### 英文版
+
+英文版入口为 `resume-en.tex`，正文位于 `content-en/`。内容与中文版逐项对齐，采用自然的英文研究型简历表达，不做逐字硬翻；当前为 3 页，避免为了两页强行压缩导致字号过小或技能板块拆分。
+
+```bash
+./build.sh resume-en
+# 或
+make english
+```
 
 支持 Tectonic 或 XeLaTeX，优先使用 Tectonic。若已有 MacTeX / TeX Live，也可以：
 
@@ -47,24 +81,30 @@ xelatex -interaction=nonstopmode -halt-on-error -output-directory=outputs resume
 | 天翼交通科技实习 | `content/experience-continued.tex` |
 | AutoResearch、Holon、ProtAgent | `content/projects.tex` |
 | 技能 | `content/skills.tex` |
+| 英文版正文 | `content-en/*.tex` |
 | 配色、照片开关、是否手动分页 | `config.tex` |
+| 首页 logo 路径与开关 | `content/profile.tex` |
 | 字号、行距、分节、日期布局等样式 | `ai4s-resume.cls` |
 | 板块顺序 | `resume.tex` |
+| 宋体 / 楷体对照版的中文字体 | `font-variants/songti.tex` / `font-variants/kaiti.tex` |
 
 改完正文后运行 `./build.sh`，查看新的 `outputs/resume.pdf`。
 
-目前正文为 9.8 pt、行距 14.4 pt，日期为 8.4 pt。中英文字体随项目携带，不需要另外安装。
+目前正文为 9.8 pt、行距 14.5 pt，日期为 8.4 pt，首页姓名为 28 pt，分节标题为 12.4 pt。中英文字体随项目携带，不需要另外安装。
 
 | 用途 | 字体与字重 |
 | --- | --- |
 | 姓名 | Noto Serif SC SemiBold（思源宋体风格） |
+| 中文分节标题 | Noto Serif SC SemiBold，较小字距，与姓名风格呼应 |
 | 中文正文 | Noto Sans SC Regular（思源黑体风格） |
 | 中文标题、指标、段落重点 | Noto Sans SC Medium，避免小字号的粗体过重 |
 | 英文正文 | IBM Plex Sans Regular |
-| 英文标题、日期、重点 | IBM Plex Sans Medium / SemiBold |
+| 英文标题、日期、重点 | IBM Plex Sans Medium，与中文重点的字重保持一致 |
 | 英文论文标题 | IBM Plex Serif Regular |
 
-正文、标题和论文采用不同但协调的字体层级；重点使用真实字重，不依赖人工加粗。论文状态独立成行，技能采用固定标签宽度，段落左对齐，避免中英文混排时空格被过度拉伸。
+正文、标题和论文采用不同但协调的字体层级；重点使用真实字重，不依赖人工加粗。论文标题行距为 13.8 pt，各论文条目末留 6.5 pt 间距。论文状态独立成行，技能采用固定标签宽度，段落左对齐，避免中英文混排时空格被过度拉伸。
+
+当前简化版不再重复显示页脚中的姓名与研究方向，也不显示分节线右侧的英文标签；分节标题后的横线与页脚横线也已移除，只保留页眉主分割线。`\cvsection` 的第二个英文参数和旧版 `\ResumeFooter` 字段仍保留为兼容接口，当前样式不展示这些文字。首页 logo 由 `\ResumeLogoEnabledtrue` 和 `\ResumeLogo` 控制，正式简历显示 `assets/fudan-logo.png`，空白模板默认不显示。
 
 ### 常用设置
 
@@ -72,7 +112,7 @@ xelatex -interaction=nonstopmode -halt-on-error -output-directory=outputs resume
 
 ```tex
 \renewcommand{\ResumeBodySize}{9.8}
-\renewcommand{\ResumeLeading}{14.4}
+\renewcommand{\ResumeLeading}{14.5}
 \renewcommand{\ResumeSectionGap}{11pt}
 \renewcommand{\ResumeEntryGap}{6pt}
 \renewcommand{\ResumeProjectGap}{10pt}
@@ -127,7 +167,7 @@ LaTeX 中百分号写作 `\%`，下划线写作 `\_`，与号写作 `\&`。段�
 
 ## Overleaf / 换一台电脑
 
-将项目 ZIP 上传到 Overleaf，主文件选择 `resume.tex`，编译器选择 **XeLaTeX**。`template.tex` 是另一份主文件，使用空白模板时切换即可。字体在 `assets/fonts/` 中，不需要单独安装。
+将项目 ZIP 上传到 Overleaf，主文件选择 `resume.tex`，编译器选择 **XeLaTeX**。英文版选择 `resume-en.tex`；宋体版、楷体版分别选择 `resume-songti.tex`、`resume-kaiti.tex`；空白模板选择 `template.tex`。字体在 `assets/fonts/` 中，不需要单独安装。
 
 新电脑可安装 Tectonic（有 Homebrew 时使用 `brew install tectonic`），或安装 MacTeX / TeX Live 中的 XeLaTeX。字体已包含，但首次使用 Tectonic 仍需联网获取宏包。
 
@@ -137,11 +177,16 @@ LaTeX 中百分号写作 `\%`，下划线写作 `\_`，与号写作 `\&`。段�
 
 ```bash
 git add README.md LICENSE THIRD_PARTY_NOTICES.md ai4s-resume.cls config.tex \
-  resume.tex template.tex build.sh build.py Makefile .gitignore \
-  .vscode content assets licenses docs outputs/.gitkeep \
+  resume.tex resume-en.tex resume-songti.tex resume-kaiti.tex template.tex build.sh build.py Makefile .gitignore \
+  .vscode content content-en font-variants assets licenses docs outputs/.gitkeep \
   outputs/resume.pdf outputs/template.pdf outputs/resume-preview.png \
   outputs/resume-page-1.png outputs/resume-page-2.png \
-  outputs/template-preview.png outputs/upstream-comparison.png
+  outputs/resume-en.pdf outputs/resume-en-preview.png outputs/resume-en-page-1.png \
+  outputs/resume-en-page-2.png outputs/resume-en-page-3.png \
+  outputs/template-preview.png outputs/upstream-comparison.png \
+  outputs/typography-comparison.png outputs/resume-songti.pdf \
+  outputs/resume-kaiti.pdf outputs/songti-kaiti-comparison.png \
+  outputs/layout-simplification-comparison.png
 git commit -m "Update resume"
 git push
 ```
@@ -153,13 +198,18 @@ git push
 ```text
 resume-template/
 ├── resume.tex                  我的简历主文件
+├── resume-en.tex                英文版入口，共享样式
+├── resume-songti.tex            宋体版入口，共享正文
+├── resume-kaiti.tex             楷体版入口，共享正文
 ├── template.tex                无个人信息的空白模板
 ├── ai4s-resume.cls              可复用样式与宏
 ├── config.tex                  外观与分页开关
 ├── content/                    分板块正文
+├── content-en/                 英文版分板块正文
+├── font-variants/              宋体 / 楷体的中文字体设置
 ├── assets/
 │   ├── photo.png               从原 PDF 提取的照片
-│   └── fonts/                  Noto Sans / Serif SC 与 IBM Plex 字体
+│   └── fonts/                  Noto Sans / Serif SC、霞鹜文楷与 IBM Plex 字体
 ├── build.sh / build.py          构建入口
 ├── Makefile                    make all
 ├── .vscode/                    编辑器任务与 LaTeX 配置

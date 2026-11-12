@@ -29,7 +29,8 @@
 | 字体 | 来源 | 许可证 |
 | --- | --- | --- |
 | Noto Sans SC Regular / Medium | https://github.com/notofonts/noto-cjk/tree/main/Sans/SubsetOTF/SC | `licenses/OFL-NotoSansSC.txt` |
-| Noto Serif SC SemiBold | https://github.com/notofonts/noto-cjk/tree/main/Serif/SubsetOTF/SC | `licenses/OFL-NotoSerifSC.txt` |
+| Noto Serif SC Regular / Medium / SemiBold | https://github.com/notofonts/noto-cjk/tree/main/Serif/SubsetOTF/SC | `licenses/OFL-NotoSerifSC.txt` |
+| LXGW WenKai Regular / Medium（霞鹜文楷） | https://github.com/lxgw/LxgwWenKai/tree/main/fonts/TTF | `licenses/OFL-LXGWWenKai.txt` |
 | IBM Plex Sans Regular / Medium / SemiBold / Italic | https://github.com/IBM/plex/tree/master/packages/plex-sans/fonts/complete/otf | `licenses/OFL-IBMPlex.txt` |
 | IBM Plex Serif Regular | https://github.com/IBM/plex/tree/master/packages/plex-serif/fonts/complete/otf | `licenses/OFL-IBMPlex.txt` |
 
@@ -38,6 +39,10 @@
 - Noto Sans SC Regular：`fc0fda9394367c16c1af7555a2ae4d5e2e6a6f02`
 - Noto Sans SC Medium：`fafdfebf3103db4dc81d33ebd55b6786e08c9ebe`
 - Noto Serif SC SemiBold：`b3598210b2805508349dae0580584e6e076ee61c`
+- Noto Serif SC Regular：`be55fbdf3fe53bfc99779389f3f0b875707bf496`
+- Noto Serif SC Medium：`490a57d8e5e94cb01402fed126dc009561baf585`
+- LXGW WenKai Regular：`7f8f031dc5c6c5ba1913d93c36d4667c1e311cea`
+- LXGW WenKai Medium：`8776123c24ebf011b0ecc6923708cef2d9cadfb0`
 - IBM Plex Sans Regular：`51b38a2675b2a881c68afef2de623cafca46c86b`
 - IBM Plex Sans Medium：`02bb792489936ade9ae53b2e15ab1e45be5a9c1a`
 - IBM Plex Sans SemiBold：`23e97340639cbf536b91060981a825c536ca75cf`

@@ -11,8 +11,10 @@ import tempfile
 
 def main():
     target = sys.argv[1] if len(sys.argv) > 1 else "resume"
-    if target not in {"resume", "template"}:
-        raise SystemExit("用法：./build.sh [resume|template]")
+    if target not in {"resume", "template", "resume-songti", "resume-kaiti", "resume-en"}:
+        raise SystemExit(
+            "用法：./build.sh [resume|template|resume-songti|resume-kaiti|resume-en]"
+        )
     root = Path(__file__).resolve().parent
     output = root / "outputs"
     output.mkdir(exist_ok=True)
